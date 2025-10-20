@@ -1,5 +1,5 @@
-/* Import font Poppins dari Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+/* Import font Orbitron untuk estetika cyberpunk */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
 /* Global styles */
 * {
@@ -10,7 +10,7 @@
 
 /* Body styles */
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     background-color: #1A1A1A; /* Hitam untuk nuansa ambient */
     color: #E0E0E0; /* Abu-abu terang untuk teks agar kontras */
     line-height: 1.6;
@@ -127,4 +127,125 @@ footer {
     height: 228px;
     width: 600px;
     margin: 20px auto;
+}
+
+/* Cyberpunk theme */
+body.cyberpunk {
+    transition: background-color 0.5s ease;
+}
+
+body.cyberpunk .container {
+    background-color: #1C2526; /* Background gelap khas cyberpunk */
+    color: #00FFFF; /* Cyan neon untuk teks */
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); /* Efek glow cyan */
+}
+
+body.cyberpunk h1,
+body.cyberpunk h2 {
+    border-bottom-color: #FF00FF; /* Magenta neon untuk border bawah */
+}
+
+body.cyberpunk th {
+    background-color: #7F00FF; /* Ungu neon untuk header tabel */
+}
+
+body.cyberpunk img {
+    border-color: #00FFFF; /* Border cyan neon */
+}
+
+body.cyberpunk iframe {
+    border-color: #00FFFF; /* Border cyan neon untuk video */
+}
+
+body.cyberpunk blockquote {
+    border-left-color: #FF007F; /* Pink neon untuk blockquote */
+    background-color: #2A2E2F; /* Background sedikit lebih terang */
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    padding: 10px 20px;
+    background-color: #FF00FF; /* Magenta neon untuk tombol */
+    color: #00FFFF; /* Cyan neon untuk teks tombol */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1em;
+    margin: 20px 0;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px #FF00FF; /* Efek glow magenta */
+}
+
+.theme-toggle:hover {
+    background-color: #00FF7F; /* Hijau neon saat hover */
+    box-shadow: 0 0 15px #00FF7F; /* Efek glow hijau */
+}
+
+/* Neon pulsating effect */
+.neon {
+    animation: neonPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+    0% { box-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF; }
+    50% { box-shadow: 0 0 20px #00FFFF, 0 0 30px #00FFFF; }
+    100% { box-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF; }
+}
+
+/* Glitch effect */
+.glitch {
+    position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    color: #00FFFF; /* Cyan neon */
+    animation: glitchTop 1s linear infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+}
+
+.glitch::after {
+    color: #FF007F; /* Pink neon */
+    animation: glitchBottom 1.5s linear infinite;
+    clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchTop {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes glitchBottom {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(2px, -2px); }
+    40% { transform: translate(2px, 2px); }
+    60% { transform: translate(-2px, -2px); }
+    80% { transform: translate(-2px, 2px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Typewriter effect for blockquote */
+.typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 3s steps(40, end) forwards;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
 }

@@ -1,0 +1,6 @@
+1. git config --global user.email "maulananurrahmanr@gmail.com"
+2. git init
+3. git add .
+4. git remote add origin https://github.com/RamaMN/Prak.git
+5. git commit -m "Penambahan Js"
+6. git push -u origin master
